@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-int A() 
+int A()
 {
 	std::stack<int> depths;
 	int larger = 0;
@@ -20,14 +20,18 @@ int A()
 	depths.push(measurement);
 
 	bool read = input.good();
-	while (read) {
+	while (read)
+	{
 		std::getline(input, line);
-		if (line.empty() || !input.good()) {
+		if (line.empty() || !input.good())
+		{
 			read = false;
 		}
-		else {
+		else
+		{
 			measurement = std::stoi(line);
-			if (measurement > depths.top()) {
+			if (measurement > depths.top())
+			{
 				++larger;
 			}
 			depths.push(measurement);
@@ -37,7 +41,8 @@ int A()
 	return larger;
 }
 
-int getWindowSum(std::vector<int> collection, int window, int offset) {
+int getWindowSum(std::vector<int> collection, int window, int offset)
+{
 	int windowSum = 0;
 	for (int i = 1; i <= window; i++)
 	{
@@ -66,19 +71,23 @@ int B()
 	}
 
 	bool read = input.good();
-	while (read) {
+	while (read)
+	{
 		int windowSumA = getWindowSum(depths, window, 1);
 		int windowSumB = getWindowSum(depths, window, 0);
 
-		if (windowSumB > windowSumA) {
+		if (windowSumB > windowSumA)
+		{
 			++larger;
 		}
 
 		std::getline(input, line);
-		if (line.empty() || !input.good()) {
+		if (line.empty() || !input.good())
+		{
 			read = false;
 		}
-		else {
+		else
+		{
 			measurement = std::stoi(line);
 			depths.push_back(measurement);
 		}
@@ -93,7 +102,7 @@ int main()
 	int b = B();
 
 	std::cout << "A: " << a << std::endl
-			  << "B: " << b << std::endl;
+		<< "B: " << b << std::endl;
 
 	return 0;
 }
