@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-void A()
+int A()
 {
     std::ifstream input;
     input.open("input");
@@ -38,10 +38,10 @@ void A()
         }
     }
 
-    std::cout << "A: " << horizontal * depth << std::endl;
+    return horizontal * depth;
 }
 
-void B()
+int B()
 {
     std::ifstream input;
     input.open("input");
@@ -79,11 +79,14 @@ void B()
         }
     }
 
-    std::cout << "B: " << horizontal * depth << std::endl;
+    return horizontal * depth;
 }
 
 int main()
 {
-    A();
-    B();
+    int a = A();
+    int b = B();
+
+    std::cout << "A: " << a << std::endl
+        << "B: " << b << std::endl;
 }
